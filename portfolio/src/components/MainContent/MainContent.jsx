@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './MainContent.css';
 
 const skillsData = [
-  { skill: 'HTML5', level: 80 },
+  { skill: 'HTML5', level: 70 },
   { skill: 'CSS3', level: 80 },
   { skill: 'JavaScript', level: 70 },
   { skill: 'jQuery', level: 50 },
+  { skill: 'Axios', level: 60 },
   { skill: 'React', level: 60 },
   { skill: 'MySQL', level: 70 },
   { skill: 'Github', level: 70 },
@@ -36,8 +37,8 @@ const MainContent = () => {
       <section id="about">
         <h1>About Me</h1>
         <p>안녕하세요
-           프론트 엔드 개발자 안성민 입니다.
-           대학시절 여러 언어와 다양한 IT기술을 접하고 싶어서 IT학과를 졸업했습니다.
+           프론트 엔드 개발자 안성민 입니다.<br />
+           대학시절 여러 언어와 다양한 IT기술을 접하고 싶어서 IT학과를 졸업했습니다.<br />
            그중 JSP로 웹 페이지를 개발하는 것이 재미있고, 제가 더 성장하면 좋은 결과물을 만들 수 있을 거 같아서 졸업 후 비트캠프(국비)를 지원하였습니다.
            해당 프로그램에서 다양한 기술들을 더 많이 배우고 여러 프로젝트를 하면서 협업심과 성취감을 길러
            한걸음씩 성장하는 프론트 개발자입니다.
