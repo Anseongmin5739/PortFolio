@@ -1,0 +1,23 @@
+.header {
+  background-color: #333;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  margin-right:30px;
+}
+
+.header nav ul li {
+  margin: 10px 10px;
+}
+
+.header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}

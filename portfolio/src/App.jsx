@@ -1,24 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
+import Header from './components/Header/Header';
+import Sidebar from './components/Sidebar/Sidebar';
+import MainContent from './components/MainContent/MainContent';
+import './App.css';
 
 function App() {
   return (
-    <Router>
+    <div className="App">
       <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<About />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </main>
-    </Router>
+      <Sidebar />
+      <MainContent />
+    </div>
   );
 }
 

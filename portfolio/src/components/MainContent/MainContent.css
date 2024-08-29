@@ -1,0 +1,17 @@
+.main-content {
+  margin-left: 25%; /* Match with Sidebar width */
+  padding: 2rem;
+  background-color: #f4f4f4;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+section h1, section h2 {
+  color: #333;
+}
+
+section p {
+  line-height: 1.6;
+}
