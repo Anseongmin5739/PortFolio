@@ -24,7 +24,7 @@ const projectsData = [
       '검색 및 북마크 기능 / Naver 지도 API를 활용하여 지도에 마커를 표시한 팝업 스토어 구현 ',
       'AJAX와 Canvas API를 활용해 퀴즈 시스템과 룰렛 게임을 구현'
     ],
-    imgSrc: '/images/Ani_main.png',
+    imgSrc: 'images/Ani_main.jpg',
     details: {
       ppt: 'https://www.miricanvas.com/v/13f46bk',
       git: 'https://github.com/Anseongmin5739/who-ducking',
@@ -40,7 +40,7 @@ const projectsData = [
       'Axios통신을 하여 커리큘럼 관리 시스템 개발',
       '설문조사 등록 및 Chart.js를 통하여 설문조사 추이 확인',
     ],
-    imgSrc: '/images/LearnHub_Manager.png',
+    imgSrc: 'images/LearnHub_Manager.jpg',
     details: {
       ppt: 'https://www.miricanvas.com/v/13kmolx',
       git: 'https://github.com/Anseongmin5739/Learn-Hub',
