@@ -24,7 +24,7 @@ const Sidebar = () => {
           <i className="fas fa-map-marker-alt"></i> 서울시 서대문구 연희로32길 48
         </p>
         <p>
-          <i className="fas fa-university"></i> 두원공과대학교
+          <i className="fas fa-university"></i> 두원공과대학교 스마트IT학과
         </p>
       </div>
       <div className="social-links">
