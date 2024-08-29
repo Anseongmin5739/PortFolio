@@ -1,44 +1,40 @@
 .sidebar {
-  width: 25%;
-  background-color: #000;
+  max-width:350px;
+  background-color: #2D457D;
   color: #fff;
   padding: 10px;
   position: fixed;
   height: 100%;
+
 }
 
 .profile {
+  margin-top:40px;
   text-align: center;
 }
 
 .profile img {
   border-radius: 50%;
   width: 150px;
-  height:200px;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .contact-info {
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  margin:20px;
+  margin-top: 2rem;
 }
 
 .contact-info p {
-  margin: 1rem 0;
+  margin: 10px 20px;
 }
 
 .social-links {
-  margin-top: 3rem;
+  margin-top: 2rem;
   text-align: center;
 }
 
 .social-links a {
   display: inline-block;
-  text-align:center;
-  align-items:center;
-  margin: 1rem;
+  margin: 0.5rem;
   font-size: 1.2rem;
   color: #fff;
   text-decoration: none;
@@ -46,12 +42,10 @@
 }
 
 .social-links a:hover {
-  color: #999;
+  color: #d3d3d3; /* 회색 계열 */
 }
 
 .social-links a i {
-  display:inline-block;
-  text-align:center;
   margin-right: 8px;
   vertical-align: middle;
 }
