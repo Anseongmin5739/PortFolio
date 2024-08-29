@@ -5,6 +5,7 @@
   position: fixed;
   width: 100%;
   top: 0;
+  z-index: 1000; /* Header가 다른 요소들보다 위에 위치하도록 설정 */
 }
 
 .header nav ul {
@@ -13,7 +14,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  margin-right:50px;
+  margin-right: 50px;
 }
 
 .header nav ul li {

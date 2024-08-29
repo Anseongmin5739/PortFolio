@@ -28,11 +28,11 @@ const Sidebar = () => {
         </p>
       </div>
       <div className="social-links">
-        <a href="https://www.notion.so/HomeLearn-d628f1bbb546468fb3be713c24ea1226" target="_blank" rel="noopener noreferrer">
-          <i className="fab fa-notion"></i> Notion
+        <a href="https://smahn4069.tistory.com/" target="_blank" rel="noopener noreferrer">
+          <i className="fab fa-notion"></i> Tistory
         </a>
         <a href="https://github.com/Anseongmin5739" target="_blank" rel="noopener noreferrer">
-          <i className="fab fa-github"></i> GitHub
+          <i className="fab fa-github"></i>
         </a>
       </div>
     </aside>

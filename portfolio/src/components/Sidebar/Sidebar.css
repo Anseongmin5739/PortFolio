@@ -9,7 +9,7 @@
 }
 
 .profile {
-  margin-top:40px;
+  margin-top:80px;
   text-align: center;
 }
 
@@ -29,14 +29,16 @@
 }
 
 .social-links {
+
   margin-top: 2rem;
   text-align: center;
 }
 
 .social-links a {
   display: inline-block;
+  text-align: center;
   margin: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 30px;
   color: #fff;
   text-decoration: none;
   transition: color 0.3s ease;
