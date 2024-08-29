@@ -32,7 +32,7 @@ const projectsData = [
   },
   {
     title: 'LearnHub(학원 lms)',
-    period: '2024.07 ~ 2022.08',
+    period: '2024.07 ~ 2024.08',
     techStack: ['React','Axios' ,'Chart.js', 'Spring Boot', 'Spring JPA', 'Spring Security+JWT'],
     description: '다양한 교육 콘텐츠를 관리하고 수강생들이 학습할 수 있는 교육 플랫폼',
     contributions: [
