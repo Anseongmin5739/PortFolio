@@ -68,7 +68,6 @@
   width: 100%;
 }
 
-/* Projects section styles */
 .projects-container {
   display: flex;
   flex-wrap: wrap;
@@ -81,7 +80,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-  width: 300px;
+  width: 400px;
   height:400px;
   padding: 1rem;
   text-align: center;
@@ -109,6 +108,7 @@
 }
 
 #project-details {
+  width:500px;
   margin-top: 2rem;
   padding: 2rem;
   background-color: #f8f9fa;
