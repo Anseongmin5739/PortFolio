@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './MainContent.css';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 // 기술 데이터
 const skillsData = [
@@ -9,7 +11,6 @@ const skillsData = [
   { skill: 'jQuery', level: 50 },
   { skill: 'React', level: 60 },
   { skill: 'MySQL', level: 60 },
-  { skill: 'Github', level: 70 },
 ];
 
 // 프로젝트 데이터
@@ -62,22 +63,22 @@ const MainContent = () => {
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
         if (rect.top <= windowHeight * 0.75 && rect.bottom >= 0) {
-          setIsSkillsVisible(true); // 스킬 섹션이 화면에 보일 때 상태를 변경합니다.
+          setIsSkillsVisible(true); // 스킬 섹션이 화면에 보일 때 상태를 변경
         }
       }
     };
 
-    window.addEventListener('scroll', handleScroll); // 스크롤 이벤트 리스너 추가
+    window.addEventListener('scroll', handleScroll); // 스크롤 이벤트 리스너
     return () => window.removeEventListener('scroll', handleScroll); // 컴포넌트가 언마운트될 때 리스너 제거
   }, []);
 
-  // 프로젝트 클릭 시 선택된 프로젝트를 설정하고 모달 창을 엽니다.
+  // 프로젝트 클릭 시 모달 창 열기
   const handleProjectClick = (project) => {
     setSelectedProject(project);
     setIsModalOpen(true);
   };
 
-  // 모달 창을 닫습니다.
+  // 모달 창 닫기
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -93,26 +94,25 @@ const MainContent = () => {
            새로운 것을 도전하는 것을 좋아하며 한걸음씩 성장해 나아가고 있는 프론트엔드 개발자입니다.
         </p>
       </section>
-
+      {/*skills부분 */}
       <section id="skills">
         <h1>Skills</h1>
         <div className={`skills-container ${isSkillsVisible ? 'active' : ''}`}>
           {skillsData.map((skill, index) => (
             <div key={index} className="skill-item">
+              <CircularProgressbar
+                value={isSkillsVisible ? skill.level : 0}
+                text={`${skill.level}%`}
+                styles={buildStyles({
+                  pathTransitionDuration: 3,
+                })}
+              />
               <p>{skill.skill}</p>
-              <div className="progress-bar">
-                <div
-                  className="progress-bar-fill"
-                  style={{ width: isSkillsVisible ? `${skill.level}%` : '0%' }}
-                >
-                  <span className="progress-bar-text">{`${skill.level}%`}</span>
-                </div>
-              </div>
             </div>
           ))}
         </div>
       </section>
-
+    {/* 프로젝트 부분 */}
       <section id="projects">
         <h1>Projects</h1>
         <div className="projects-container">
