@@ -43,7 +43,7 @@ const projectsData = [
     imgSrc: 'images/LearnHub_Manager.jpg',
     details: {
       ppt: 'https://www.miricanvas.com/v/13kmolx',
-      git: 'https://github.com/Anseongmin5739/Learn-Hub',
+      git: 'https://github.com/Anseongmin5739/HomeLearn-front',
     }
   },
 ];
