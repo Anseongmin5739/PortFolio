@@ -12,16 +12,16 @@ const skillsData = [
   { skill: 'Github', level: 70 },
 ];
 
-// 프로젝트
+// 프로젝트 데이터
 const projectsData = [
   {
     title: '후덕킹(애니 커뮤니티 사이트)',
     period: '2024.06 ~ 2024.07',
-    techStack: ['Thymeleaf', 'AJAX', 'MySQL', 'Spring JPA','Spring Security+JWT'],
-    description: '애니메이션 커뮤니티를 사이트로 사용자가 애니메이션을 추천하고 리뷰를 작성하며 게임을 즐기수 있는 커뮤니티',
+    techStack: ['Thymeleaf', 'AJAX', 'MySQL', 'Spring JPA', 'Spring Security+JWT'],
+    description: '애니메이션 커뮤니티를 사이트로 사용자가 애니메이션을 추천하고 리뷰를 작성하며 게임을 즐길 수 있는 커뮤니티',
     contributions: [
       'jQuery, Swiper, AOS 등의 라이브러리를 설치 및 활용하여 일관된 UI/UX를 구현',
-      '검색 및 북마크 기능 / Naver 지도 API를 활용하여 지도에 마커를 표시한 팝업 스토어 구현 ',
+      '검색 및 북마크 기능 / Naver 지도 API를 활용하여 지도에 마커를 표시한 팝업 스토어 구현',
       'AJAX와 Canvas API를 활용해 퀴즈 시스템과 룰렛 게임을 구현'
     ],
     imgSrc: 'images/Ani_main.jpg',
@@ -33,12 +33,12 @@ const projectsData = [
   {
     title: 'LearnHub(학원 lms)',
     period: '2024.07 ~ 2024.08',
-    techStack: ['React','Axios' ,'Chart.js', 'Spring Boot', 'Spring JPA', 'Spring Security+JWT'],
+    techStack: ['React', 'Axios', 'Chart.js', 'Spring Boot', 'Spring JPA', 'Spring Security+JWT'],
     description: '다양한 교육 콘텐츠를 관리하고 수강생들이 학습할 수 있는 교육 플랫폼',
     contributions: [
-      '외부라이브러리 및 API를 가져와 캘린더 구현',
-      'Axios통신을 하여 커리큘럼 관리 시스템 개발',
-      '설문조사 등록 및 Chart.js를 통하여 설문조사 추이 확인',
+      '외부 라이브러리 및 API를 사용하여 캘린더를 구현',
+      'Axios 통신을 통해 커리큘럼 관리 시스템 개발',
+      '설문조사 등록 및 Chart.js를 통해 설문조사 추이 확인',
     ],
     imgSrc: 'images/LearnHub_Manager.jpg',
     details: {
@@ -51,6 +51,7 @@ const projectsData = [
 const MainContent = () => {
   const [selectedProject, setSelectedProject] = useState(null); // 선택된 프로젝트 상태
   const [isSkillsVisible, setIsSkillsVisible] = useState(false); // 스킬이 보이는지 여부
+  const [isModalOpen, setIsModalOpen] = useState(false); // 모달 창 상태
 
   // 스크롤 이벤트를 감지하여 스킬 섹션이 화면에 나타날 때 애니메이션을 실행
   useEffect(() => {
@@ -70,28 +71,15 @@ const MainContent = () => {
     return () => window.removeEventListener('scroll', handleScroll); // 컴포넌트가 언마운트될 때 리스너 제거
   }, []);
 
-  // 프로젝트 클릭 시 선택된 프로젝트를 설정합니다.
+  // 프로젝트 클릭 시 선택된 프로젝트를 설정하고 모달 창을 엽니다.
   const handleProjectClick = (project) => {
     setSelectedProject(project);
+    setIsModalOpen(true);
   };
 
-  // 폼 제출
-  const handleSubmit = (e) => {
-    e.preventDefault(); // 페이지 리로드 방지
-
-    // 폼 데이터 수집
-    const formData = new FormData(e.target);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
-
-    // 임시 성공 또는 실패 로직
-    if (name && email && message) {
-      alert('성공적으로 메시지를 보냈습니다.');
-      e.target.reset();
-    } else {
-      alert('메시지를 보내는 데 실패했습니다. 모든 필드를 작성해주세요.');
-    }
+  // 모달 창을 닫습니다.
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -101,7 +89,7 @@ const MainContent = () => {
         <p>안녕하세요 주니어 개발자 안성민 입니다.<br />
            대학시절 여러 언어와 다양한 IT기술을 접하고 싶어서 IT학과를 졸업했습니다.<br />
            그중 JSP로 웹 페이지를 개발하는 것이 재미있었고, 제가 더 성장하면 좋은 결과물을 만들 수 있을 거 같아서 졸업 후 비트캠프에 지원하였습니다.<br />
-           해당 프로그램에서 다양한 기술들을 더 많이 배우고 여러 프로젝트를 하면서 협업심과 성취감을 길렀습니다 <br />
+           해당 프로그램에서 다양한 기술들을 더 많이 배우고 여러 프로젝트를 하면서 협업심과 성취감을 길렀습니다.<br />
            새로운 것을 도전하는 것을 좋아하며 한걸음씩 성장해 나아가고 있는 프론트엔드 개발자입니다.
         </p>
       </section>
@@ -142,24 +130,28 @@ const MainContent = () => {
         </div>
       </section>
 
-      {selectedProject && (
-        <section id="project-details">
-          <h1>{selectedProject.title}</h1>
-          <p><strong>기간:</strong> {selectedProject.period}</p>
-          <p><strong>사용 기술 스택:</strong> {selectedProject.techStack.join(', ')}</p>
-          <p><strong>프로젝트 설명:</strong> {selectedProject.description}</p>
-          <p><strong>기여한 부분:</strong></p>
-          <ul>
-            {selectedProject.contributions.map((contribution, index) => (
-              <li key={index}>{contribution}</li>
-            ))}
-          </ul>
-          <a href={selectedProject.details.ppt} target="_blank" rel="noopener noreferrer">PPT 보기</a>
-          <a href={selectedProject.details.git} target="_blank" rel="noopener noreferrer">GitHub 보기</a>
-        </section>
+      {/* 모달 창 */}
+      {isModalOpen && selectedProject && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close-modal" onClick={closeModal}>&times;</span>
+            <h1>{selectedProject.title}</h1>
+            <p><strong>기간:</strong> {selectedProject.period}</p>
+            <p><strong>사용 기술 스택:</strong> {selectedProject.techStack.join(', ')}</p>
+            <p><strong>프로젝트 설명:</strong> {selectedProject.description}</p>
+            <p><strong>기여한 부분:</strong></p>
+            <ul>
+              {selectedProject.contributions.map((contribution, index) => (
+                <li key={index}>{contribution}</li>
+              ))}
+            </ul>
+            <div className="buttons">
+              <a href={selectedProject.details.ppt} target="_blank" rel="noopener noreferrer" className="project-button">PPT 보기</a>
+              <a href={selectedProject.details.git} target="_blank" rel="noopener noreferrer" className="project-button">GitHub 보기</a>
+            </div>
+          </div>
+        </div>
       )}
-
-
     </div>
   );
 }
