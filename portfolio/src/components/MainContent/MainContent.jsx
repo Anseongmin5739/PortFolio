@@ -13,6 +13,15 @@ const skillsData = [
   { skill: 'MySQL', level: 60 },
 ];
 
+// 핵심 역량 데이터
+const coreSkills = [
+  "React와 HTML을 활용한 웹 개발",
+  "Axios, AJAX를 활용한 백엔드 통신 및 API 연동",
+  "사용자 인증 및 상태 관리",
+  "UI/UX 개선 및 최적화",
+  "데이터 처리 및 비동기 작업 관리",
+];
+
 // 프로젝트 데이터
 const projectsData = [
   {
@@ -40,6 +49,7 @@ const projectsData = [
       '외부 라이브러리 및 API를 사용하여 캘린더를 구현',
       'Axios 통신을 통해 커리큘럼 관리 시스템 개발',
       '설문조사 등록 및 Chart.js를 통해 설문조사 추이 확인',
+      '로그인 및 회원가입 구현',
     ],
     imgSrc: 'images/LearnHub_Manager.jpg',
     details: {
@@ -94,7 +104,7 @@ const MainContent = () => {
            새로운 것을 도전하는 것을 좋아하며 한걸음씩 성장해 나아가고 있는 프론트엔드 개발자입니다.
         </p>
       </section>
-      {/*skills부분 */}
+      {/*skills 부분 */}
       <section id="skills">
         <h1>Skills</h1>
         <div className={`skills-container ${isSkillsVisible ? 'active' : ''}`}>
@@ -112,7 +122,8 @@ const MainContent = () => {
           ))}
         </div>
       </section>
-    {/* 프로젝트 부분 */}
+
+      {/* 프로젝트 부분 */}
       <section id="projects">
         <h1>Projects</h1>
         <div className="projects-container">
