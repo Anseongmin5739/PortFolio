@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import TypeIt from "typeit-react";
 import './MainContent.css';
 
-// 프론트엔드
 const frontendSkills = [
   "HTML5",
   "CSS3",
@@ -13,7 +15,6 @@ const frontendSkills = [
   "jQuery"
 ];
 
-// 데브옵스
 const devopsSkills = [
   "Docker",
   "Kubernetes",
@@ -21,7 +22,6 @@ const devopsSkills = [
   "Naver Cloud Platform",
 ];
 
-// 툴
 const toolSkills = [
   "IntelliJ IDEA",
   "VSCode",
@@ -31,7 +31,6 @@ const toolSkills = [
   "Notion",
 ];
 
-// 프로젝트 데이터
 const projectsData = [
   {
     title: '후덕킹(애니 커뮤니티 사이트)',
@@ -71,16 +70,27 @@ const projectsData = [
 ];
 
 const MainContent = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1200 });
+  }, []);
+
   return (
     <div className="main-content">
       <section id="about">
         <h1>About Me</h1>
-        <p>안녕하세요 주니어 개발자 안성민 입니다.<br />
-           대학시절 여러 언어와 다양한 IT기술을 접하고 싶어서 IT학과를 졸업했습니다.<br />
-           그중 JSP로 웹 페이지를 개발하는 것이 재미있었고 제가 더 성장하면 좋은 결과물을 만들 수 있을 거 같아서 졸업 후 비트캠프에 지원하였습니다.<br />
-           해당 프로그램에서 다양한 기술들을 더 많이 배우고 여러 프로젝트를 하면서 협업심과 성취감을 길렀습니다.<br />
-           새로운 것을 도전하는 것을 좋아하며 한걸음씩 성장해 나아가고 있는 프론트엔드 개발자입니다.
+        <div className="typeit-wrapper">
+          <TypeIt options={{ speed: 50, loop: false }}>
+              안녕하세요 주니어 개발자 안성민 입니다.
+         </TypeIt>
+          </div>
+        <div className="about-wrapper">
+        <p>
+          대학시절 여러 언어와 다양한 IT기술을 접하고 싶어서 IT학과를 졸업했습니다.<br />
+          그중 JSP로 웹 페이지를 개발하는 것이 재미있었고 제가 더 성장하면 좋은 결과물을 만들 수 있을 거 같아서 졸업 후 비트캠프에 지원하였습니다.<br />
+          해당 프로그램에서 다양한 기술들을 더 많이 배우고 여러 프로젝트를 하면서 협업심과 성취감을 길렀습니다.<br />
+          새로운 것을 도전하는 것을 좋아하며 한걸음씩 성장해 나아가고 있는 프론트엔드 개발자입니다.
         </p>
+        </div>
       </section>
       <hr className="port-line" />
       <section id="skills">
@@ -118,7 +128,7 @@ const MainContent = () => {
       <section id="projects">
         <h1>Projects</h1>
         {projectsData.map((project, idx) => (
-          <div key={idx} className={project.cardClassName}>
+          <div key={idx} className={project.cardClassName} data-aos="fade-up">
             <div className="project-card-inner">
               <img src={project.imgSrc} alt={project.title} className="project-image" />
               <div className="project-content">
