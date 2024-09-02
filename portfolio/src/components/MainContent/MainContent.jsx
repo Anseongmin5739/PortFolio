@@ -1,17 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './MainContent.css';
-
-// 백엔드
-const backendSkills = [
-  "Java",
-  "Spring Boot",
-  "Spring Framework",
-  "JPA",
-  "RESTful API",
-  "Spring Security",
-  "JWT",
-  "MySQL"
-];
 
 // 프론트엔드
 const frontendSkills = [
@@ -20,8 +8,8 @@ const frontendSkills = [
   "JavaScript",
   "React",
   "Axios",
+  "AJAX",
   "Chart.js",
-  "fetch API",
   "jQuery"
 ];
 
@@ -49,7 +37,7 @@ const projectsData = [
     title: '후덕킹(애니 커뮤니티 사이트)',
     period: '2024.06 ~ 2024.07',
     techStack: ['Thymeleaf', 'AJAX', 'MySQL', 'Spring JPA', 'Spring Security+JWT'],
-    description: '애니메이션 커뮤니티를 사이트로 사용자가 애니메이션을 추천하고 리뷰를 작성하며 게임을 즐길 수 있는 커뮤니티',
+    description: '애니메이션 커뮤니티를 사이트로 사용자가 애니메이션을 추천하고 리뷰를 작성하며 게임을 즐길 수 있는 커뮤니티입니다.',
     contributions: [
       'jQuery, Swiper, AOS 등의 라이브러리를 설치 및 활용하여 일관된 UI/UX를 구현',
       '검색 및 북마크 기능 / Naver 지도 API를 활용하여 지도에 마커를 표시한 팝업 스토어 구현',
@@ -59,13 +47,14 @@ const projectsData = [
     details: {
       ppt: 'https://www.miricanvas.com/v/13f46bk',
       git: 'https://github.com/Anseongmin5739/who-ducking',
-    }
+    },
+    cardClassName: 'project-card-ani'
   },
   {
     title: 'Learn-Hub(학원 lms)',
     period: '2024.07 ~ 2024.08',
     techStack: ['React', 'Axios', 'Chart.js', 'Spring Boot', 'Spring JPA', 'Spring Security+JWT'],
-    description: '다양한 교육 콘텐츠를 관리하고 수강생들이 학습할 수 있는 교육 플랫폼',
+    description: '다양한 교육 콘텐츠를 관리하고 수강생들이 학습할 수 있는 교육 플랫폼입니다.',
     contributions: [
       '외부 라이브러리 및 API를 사용하여 캘린더를 구현',
       'Axios 통신을 통해 커리큘럼 관리 시스템 개발',
@@ -76,24 +65,12 @@ const projectsData = [
     details: {
       ppt: 'https://www.miricanvas.com/v/13kmolx',
       git: 'https://github.com/Anseongmin5739/HomeLearn-front',
-    }
+    },
+    cardClassName: 'project-card-learnhub'
   },
 ];
 
 const MainContent = () => {
-  const [selectedProject, setSelectedProject] = useState(null); // 선택된 프로젝트 상태
-  const [isModalOpen, setIsModalOpen] = useState(false); // 모달 창 상태
-
-  // 프로젝트 클릭 시 모달 창 열기
-  const handleProjectClick = (project) => {
-    setSelectedProject(project);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
   return (
     <div className="main-content">
       <section id="about-text">
@@ -105,82 +82,64 @@ const MainContent = () => {
            새로운 것을 도전하는 것을 좋아하며 한걸음씩 성장해 나아가고 있는 프론트엔드 개발자입니다.
         </p>
       </section>
+      <hr className="divider" />
+      <section id="skills">
+        <h1>Skills</h1>
 
-      <section id="skills-backend">
-        <h1>Back-End</h1>
-        <ul className="skills-list">
-          {backendSkills.map((skill, index) => (
-            <li key={index} className="skill-item">{skill}</li>
-          ))}
-        </ul>
-      </section>
+        <div className="skills-section">
+          <h2>Front-End</h2>
+          <ul className="skills-list">
+            {frontendSkills.map((skill, idx) => (
+              <li key={idx} className="skill-item">{skill}</li>
+            ))}
+          </ul>
+        </div>
 
-      <section id="skills-frontend">
-        <h1>Front-End</h1>
-        <ul className="skills-list">
-          {frontendSkills.map((skill, index) => (
-            <li key={index} className="skill-item">{skill}</li>
-          ))}
-        </ul>
-      </section>
+        <div className="skills-section">
+          <h2>DevOps</h2>
+          <ul className="skills-list">
+            {devopsSkills.map((skill, idx) => (
+              <li key={idx} className="skill-item">{skill}</li>
+            ))}
+          </ul>
+        </div>
 
-      <section id="skills-devops">
-        <h1>DevOps</h1>
-        <ul className="skills-list">
-          {devopsSkills.map((skill, index) => (
-            <li key={index} className="skill-item">{skill}</li>
-          ))}
-        </ul>
+        <div className="skills-section">
+          <h2>Tools</h2>
+          <ul className="skills-list">
+            {toolSkills.map((skill, idx) => (
+              <li key={idx} className="skill-item">{skill}</li>
+            ))}
+          </ul>
+        </div>
       </section>
-
-      <section id="skills-tools">
-        <h1>Tools</h1>
-        <ul className="skills-list">
-          {toolSkills.map((skill, index) => (
-            <li key={index} className="skill-item">{skill}</li>
-          ))}
-        </ul>
-      </section>
+      <hr className="divider" />
 
       <section id="projects">
         <h1>Projects</h1>
-        <div className="projects-container">
-          {projectsData.map((project, index) => (
-            <div
-              key={index}
-              className="project-card"
-              onClick={() => handleProjectClick(project)}
-            >
-              <img src={project.imgSrc} alt={project.title} />
-              <h2>{project.title}</h2>
-              <p>{project.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 모달 창 */}
-      {isModalOpen && selectedProject && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close-modal" onClick={closeModal}>&times;</span>
-            <h1>{selectedProject.title}</h1>
-            <p><strong>기간:</strong> {selectedProject.period}</p>
-            <p><strong>사용 기술 스택:</strong> {selectedProject.techStack.join(', ')}</p>
-            <p><strong>프로젝트 설명:</strong> {selectedProject.description}</p>
-            <p><strong>기여한 부분:</strong></p>
-            <ul>
-              {selectedProject.contributions.map((contribution, index) => (
-                <li key={index}>{contribution}</li>
-              ))}
-            </ul>
-            <div className="buttons">
-              <a href={selectedProject.details.ppt} target="_blank" rel="noopener noreferrer" className="project-button">PPT 보기</a>
-              <a href={selectedProject.details.git} target="_blank" rel="noopener noreferrer" className="project-button">GitHub 보기</a>
+        {projectsData.map((project, idx) => (
+          <div key={idx} className={project.cardClassName}>
+            <div className="project-card-inner">
+              <img src={project.imgSrc} alt={project.title} className="project-image" />
+              <div className="project-content">
+                <h2>{project.title}</h2>
+                <p><strong>기간:</strong> {project.period}</p>
+                <p>{project.description}</p>
+                <p><strong>기술 스택:</strong> {project.techStack.join(', ')}</p>
+                <ul>
+                  {project.contributions.map((contribution, idx) => (
+                    <li key={idx}>{contribution}</li>
+                  ))}
+                </ul>
+                <div className="project-links-detail">
+                  <a href={project.details.ppt} target="_blank" rel="noopener noreferrer" className="project-button">PPT 보기</a>
+                  <a href={project.details.git} target="_blank" rel="noopener noreferrer" className="project-button">GitHub 보기</a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        ))}
+      </section>
     </div>
   );
 }

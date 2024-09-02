@@ -29,7 +29,7 @@ const Sidebar = () => {
       </div>
       <div className="social-links">
         <a href="https://smahn4069.tistory.com/" target="_blank" rel="noopener noreferrer">
-          <i className="fab fa-notion"></i> Tistory
+           Tistory
         </a>
         <a href="https://github.com/Anseongmin5739" target="_blank" rel="noopener noreferrer">
           <i className="fab fa-github"></i>
