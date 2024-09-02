@@ -18,7 +18,7 @@ const frontendSkills = [
 const devopsSkills = [
   "Docker",
   "Kubernetes",
-  "Jenkins (CI/CD)",
+  "Jenkins",
   "Naver Cloud Platform",
 ];
 
@@ -71,7 +71,7 @@ const projectsData = [
 
 const MainContent = () => {
   useEffect(() => {
-    AOS.init({ duration: 1200 });
+    AOS.init({ duration: 1000 });
   }, []);
 
   return (
@@ -142,8 +142,8 @@ const MainContent = () => {
                   ))}
                 </ul>
                 <div className="project-links-detail">
-                  <a href={project.details.ppt} target="_blank" rel="noopener noreferrer" className="project-button">PPT 보기</a>
-                  <a href={project.details.git} target="_blank" rel="noopener noreferrer" className="project-button">GitHub 보기</a>
+                  <a href={project.details.ppt} target="_blank" rel="noopener noreferrer" className="project-button">PPT</a>
+                  <a href={project.details.git} target="_blank" rel="noopener noreferrer" className="project-button">GitHub</a>
                 </div>
               </div>
             </div>

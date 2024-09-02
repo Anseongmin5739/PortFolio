@@ -1,11 +1,11 @@
 .header {
-  background-color: #77ADFF;
+  background-color: #6DA1EF;
   color: #fff;
   padding: 1rem;
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 1000; /* Header가 다른 요소들보다 위에 위치하도록 설정 */
+  z-index: 1000;
 }
 
 .header nav ul {
@@ -29,5 +29,5 @@
 }
 
 .header nav ul li a:hover {
-  color: #d3d3d3; /* 회색 계열 */
+  color: #325AB9;
 }
