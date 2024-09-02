@@ -1,25 +1,46 @@
 import React, { useEffect, useState } from 'react';
 import './MainContent.css';
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
 
-// 기술 데이터
-const skillsData = [
-  { skill: 'HTML5', level: 70 },
-  { skill: 'CSS3', level: 80 },
-  { skill: 'JavaScript', level: 70 },
-  { skill: 'jQuery', level: 50 },
-  { skill: 'React', level: 60 },
-  { skill: 'MySQL', level: 60 },
+// 백엔드
+const backendSkills = [
+  "Java",
+  "Spring Boot",
+  "Spring Framework",
+  "JPA",
+  "RESTful API",
+  "Spring Security",
+  "JWT",
+  "MySQL"
 ];
 
-// 핵심 역량 데이터
-const coreSkills = [
-  "React와 HTML을 활용한 웹 개발",
-  "Axios, AJAX를 활용한 백엔드 통신 및 API 연동",
-  "사용자 인증 및 상태 관리",
-  "UI/UX 개선 및 최적화",
-  "데이터 처리 및 비동기 작업 관리",
+// 프론트엔드
+const frontendSkills = [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "React",
+  "Axios",
+  "Chart.js",
+  "fetch API",
+  "jQuery"
+];
+
+// 데브옵스
+const devopsSkills = [
+  "Docker",
+  "Kubernetes",
+  "Jenkins (CI/CD)",
+  "Naver Cloud Platform",
+];
+
+// 툴
+const toolSkills = [
+  "IntelliJ IDEA",
+  "VSCode",
+  "GitHub",
+  "Postman",
+  "Figma",
+  "Notion",
 ];
 
 // 프로젝트 데이터
@@ -41,7 +62,7 @@ const projectsData = [
     }
   },
   {
-    title: 'LearnHub(학원 lms)',
+    title: 'Learn-Hub(학원 lms)',
     period: '2024.07 ~ 2024.08',
     techStack: ['React', 'Axios', 'Chart.js', 'Spring Boot', 'Spring JPA', 'Spring Security+JWT'],
     description: '다양한 교육 콘텐츠를 관리하고 수강생들이 학습할 수 있는 교육 플랫폼',
@@ -61,26 +82,7 @@ const projectsData = [
 
 const MainContent = () => {
   const [selectedProject, setSelectedProject] = useState(null); // 선택된 프로젝트 상태
-  const [isSkillsVisible, setIsSkillsVisible] = useState(false); // 스킬이 보이는지 여부
   const [isModalOpen, setIsModalOpen] = useState(false); // 모달 창 상태
-
-  // 스크롤 이벤트를 감지하여 스킬 섹션이 화면에 나타날 때 애니메이션을 실행
-  useEffect(() => {
-    const handleScroll = () => {
-      const skillsSection = document.getElementById('skills');
-      if (skillsSection) {
-        const rect = skillsSection.getBoundingClientRect();
-        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-
-        if (rect.top <= windowHeight * 0.75 && rect.bottom >= 0) {
-          setIsSkillsVisible(true); // 스킬 섹션이 화면에 보일 때 상태를 변경
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll); // 스크롤 이벤트 리스너
-    return () => window.removeEventListener('scroll', handleScroll); // 컴포넌트가 언마운트될 때 리스너 제거
-  }, []);
 
   // 프로젝트 클릭 시 모달 창 열기
   const handleProjectClick = (project) => {
@@ -88,7 +90,6 @@ const MainContent = () => {
     setIsModalOpen(true);
   };
 
-  // 모달 창 닫기
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -104,26 +105,43 @@ const MainContent = () => {
            새로운 것을 도전하는 것을 좋아하며 한걸음씩 성장해 나아가고 있는 프론트엔드 개발자입니다.
         </p>
       </section>
-      {/*skills 부분 */}
-      <section id="skills">
-        <h1>Skills</h1>
-        <div className={`skills-container ${isSkillsVisible ? 'active' : ''}`}>
-          {skillsData.map((skill, index) => (
-            <div key={index} className="skill-item">
-              <CircularProgressbar
-                value={isSkillsVisible ? skill.level : 0}
-                text={`${skill.level}%`}
-                styles={buildStyles({
-                  pathTransitionDuration: 3,
-                })}
-              />
-              <p>{skill.skill}</p>
-            </div>
+
+      <section id="skills-backend">
+        <h1>Back-End</h1>
+        <ul className="skills-list">
+          {backendSkills.map((skill, index) => (
+            <li key={index} className="skill-item">{skill}</li>
           ))}
-        </div>
+        </ul>
       </section>
 
-      {/* 프로젝트 부분 */}
+      <section id="skills-frontend">
+        <h1>Front-End</h1>
+        <ul className="skills-list">
+          {frontendSkills.map((skill, index) => (
+            <li key={index} className="skill-item">{skill}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section id="skills-devops">
+        <h1>DevOps</h1>
+        <ul className="skills-list">
+          {devopsSkills.map((skill, index) => (
+            <li key={index} className="skill-item">{skill}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section id="skills-tools">
+        <h1>Tools</h1>
+        <ul className="skills-list">
+          {toolSkills.map((skill, index) => (
+            <li key={index} className="skill-item">{skill}</li>
+          ))}
+        </ul>
+      </section>
+
       <section id="projects">
         <h1>Projects</h1>
         <div className="projects-container">

@@ -6,10 +6,6 @@
   min-height: 100vh;
 }
 
-.main-content section {
-  margin-bottom: 1rem;
-}
-
 .main-content h1, .main-content h2 {
   color: #1b2a4e;
   margin-bottom: 1rem;
@@ -19,22 +15,19 @@
   line-height: 1.6;
 }
 
-.skills-container {
+.skills-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
+  list-style-type: none;
+  padding: 0;
 }
 
 .skill-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150px;
-}
-
-.skill-item p {
-  margin-top: 1rem;
-  font-size: 1.2rem;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
   font-weight: bold;
   color: #333;
 }
@@ -78,42 +71,6 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-#project-details {
-  width: 100%;
-  margin-top: 2rem;
-  padding: 2rem;
-  background-color: #f8f9fa;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#project-details h1 {
-  margin-bottom: 1rem;
-}
-
-#project-details p {
-  margin-bottom: 1.5rem;
-}
-
-.buttons {
-  margin-top: 1rem;
-}
-
-.project-button {
-  display: inline-block;
-  margin-right: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #4682b4;
-  color: #fff;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.project-button:hover {
-  background-color: #5a9bd5;
-}
-
 /* 모달 창 */
 .modal {
   position: fixed;
@@ -150,4 +107,24 @@
 
 .close-modal:hover {
   color: #ff0000;
+}
+
+/* 프로젝트 버튼 */
+.buttons {
+  margin-top: 1rem;
+}
+
+.project-button {
+  display: inline-block;
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #4682b4;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.project-button:hover {
+  background-color: #5a9bd5;
 }
