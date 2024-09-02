@@ -11,6 +11,7 @@
     font-size:24px;
  }
 .main-content h1 {
+  font-size:30px;
   color: #1b2a4e;
   margin-bottom: 1rem;
 }
@@ -38,6 +39,7 @@
   font-size: 1rem;
   font-weight: bold;
   color: #333;
+  border:1px solid #757575;
 }
 
 .project-card-inner {
@@ -94,10 +96,14 @@
   background-color: #5a9bd5;
 }
 
-.divider {
+.port-line {
   border: 0;
   height: 2px;
   background: #ccc;
   margin: 2rem 0;
 }
 
+ul {
+    margin: 0;
+    padding: 20px;
+}

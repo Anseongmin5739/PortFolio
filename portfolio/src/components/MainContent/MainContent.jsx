@@ -73,16 +73,16 @@ const projectsData = [
 const MainContent = () => {
   return (
     <div className="main-content">
-      <section id="about-text">
+      <section id="about">
         <h1>About Me</h1>
         <p>안녕하세요 주니어 개발자 안성민 입니다.<br />
            대학시절 여러 언어와 다양한 IT기술을 접하고 싶어서 IT학과를 졸업했습니다.<br />
-           그중 JSP로 웹 페이지를 개발하는 것이 재미있었고, 제가 더 성장하면 좋은 결과물을 만들 수 있을 거 같아서 졸업 후 비트캠프에 지원하였습니다.<br />
+           그중 JSP로 웹 페이지를 개발하는 것이 재미있었고 제가 더 성장하면 좋은 결과물을 만들 수 있을 거 같아서 졸업 후 비트캠프에 지원하였습니다.<br />
            해당 프로그램에서 다양한 기술들을 더 많이 배우고 여러 프로젝트를 하면서 협업심과 성취감을 길렀습니다.<br />
            새로운 것을 도전하는 것을 좋아하며 한걸음씩 성장해 나아가고 있는 프론트엔드 개발자입니다.
         </p>
       </section>
-      <hr className="divider" />
+      <hr className="port-line" />
       <section id="skills">
         <h1>Skills</h1>
 
@@ -113,7 +113,7 @@ const MainContent = () => {
           </ul>
         </div>
       </section>
-      <hr className="divider" />
+      <hr className="port-line" />
 
       <section id="projects">
         <h1>Projects</h1>
